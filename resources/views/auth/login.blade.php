@@ -17,15 +17,15 @@
           @csrf
           <div>
             <label for="nisn" class="font-medium text-amber-600">NISN</label>
-            <input type="text" name="nisn" id="nisn" class="mt-2 w-full p-1 bg-amber-100 outline-none shadow-sm focus:border-l-4 focus:border-amber-500">
+            <input type="text" name="nisn" id="nisn" class="text-amber-600 font-medium mt-2 w-full p-1 bg-amber-100 outline-none shadow-sm focus:border-l-4 focus:border-amber-500">
           </div>
           <div class="mt-4">
             <label for="password" class="font-medium text-amber-600">PASSWORD</label>
-            <input type="password" name="password" id="password" class="mt-2 w-full p-1 bg-amber-100 outline-none shadow-sm focus:border-l-4 focus:border-amber-500">
+            <input type="password" name="password" id="password" class="text-amber-600 font-medium mt-2 w-full p-1 bg-amber-100 outline-none shadow-sm focus:border-l-4 focus:border-amber-500">
           </div>
           
           <div class="mt-4">
-            <p class="text-sm text-amber-600">Password menggunakan tanggal lahir dengan format <code class="font-mono text-amber-700 font-bold">ddmmyy</code> atau <code class="font-mono text-amber-700 font-bold">1162005</code></p>
+            <p class="text-sm text-amber-600">Password menggunakan tanggal lahir dengan format <code class="font-mono text-amber-700 font-bold">ddmmyy</code> atau <code class="font-mono text-amber-700 font-bold">11042005</code></p>
           </div>
           
           <div class="mt-16">

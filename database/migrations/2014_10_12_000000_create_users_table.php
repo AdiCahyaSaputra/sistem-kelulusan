@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nisn')->unique();
-            $table->integer('exam_num');
+            $table->string('nisn');
+            $table->string('exam_num');
             $table->string('fullname');
-            $table->string('password'); // tanggal lahir
+            $table->string('birth'); // set jadi default password buat auth check 
             $table->string('class');
             $table->enum('isPass', ["Lulus", "Tidak Lulus"]);
             $table->enum('isPaid', ["Lunas", "Belum Lunas"]);
