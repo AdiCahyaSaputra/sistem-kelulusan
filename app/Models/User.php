@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'birth',
         'remember_token',
     ];
 
@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
     
     public function getAuthPassword() {
-      return $this->birth;
+      return $this->birth; // SELECT birth FROM user
     }
     
 }

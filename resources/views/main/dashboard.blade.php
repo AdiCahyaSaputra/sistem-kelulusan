@@ -4,10 +4,9 @@
 <div class="p-4">
   <h1>Anda Sudah Login : </h1>
   <div class="mt-4">
-    <h1 class="text-lg font-semibold">{{ auth()->user()->fullname }}</h1>
-    <p>{{ auth()->user()->nisn }}</p>
+    <h1 class="text-lg font-semibold">{{ auth()->user()->username }}</h1>
   </div>
-  <form action="/siswa/logout" method="post">
+  <form action="/admin/logout" method="post">
     @csrf
     <div class="mt-4">
       <button type="submit" class="inline-block px-6 

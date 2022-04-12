@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +15,29 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/siswa', function () {
     return view("main.home", [
       "title" => "Home"
     ]);
-})->middleware('auth');
-
+})->middleware('auth:user');
 
 Route::controller(LoginController::class)->group(function() {
-  Route::get("/login", "login")->name("login");
+  Route::get("/siswa/login", "login")->name("login")->middleware("guest:user");
   Route::post("/login", "authLogin");
-  Route::post("/logout", "logout");
+  Route::post("/siswa/logout", "logout");
+  
+});
+
+Route::get("/dashboard", function() {
+  return view("main.dashboard", [
+    "title" => "Admin Dashboard",
+  ]);
+})->middleware("auth:admin");
+
+
+Route::controller(AdminController::class)->group(function() {
+  Route::get("/admin/login", "login")->name('login')->middleware("guest:admin");
+  Route::post("/admin", "authLogin");
+  Route::post("/admin/logout", "logout");
+  
 });
