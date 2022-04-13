@@ -1,27 +1,55 @@
+<?php 
+use Illuminate\Support\Str;
+?>
+
 @extends("layouts.main")
 
 @section("content")
-<div class="p-4">
-  <h1>Anda Sudah Login : </h1>
-  <div class="mt-4">
-    <h1 class="text-lg font-semibold">{{ auth()->user()->fullname }}</h1>
-    <p>{{ auth()->user()->nisn }}</p>
-  </div>
-  <form action="/siswa/logout" method="post">
-    @csrf
-    <div class="mt-4">
-      <button type="submit" class="inline-block px-6 
-      py-2.5 bg-blue-600 text-white font-medium 
-      text-xs leading-tight uppercase rounded 
-      shadow-md 
-      hover:bg-blue-700 hover:shadow-lg 
-      focus:bg-blue-700 focus:shadow-lg 
-      focus:outline-none focus:ring-0 
-      active:bg-blue-800 active:shadow-lg 
-      transition 
-      duration-150 ease-in-out">Logout</button>
-    </div>
-  </form>
+<div class="p-4 text-white">
+ <div class="container mx-auto mb-4">
+   <div>
+     <form action="/siswa/logout" method="post">
+       @csrf
+       <button type="submit" class="px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out md:w-max w-full">Logout</button>
+     </form>
+   </div>
+ </div>
+ <div class="container mx-auto grid grid-cols-12 gap-4">
+   
+   <div class="col-span-12 md:col-span-8 p-4 bg-amber-400 shadow-md">
+     <div class="border-b-2 border-white py-2 flex justify-between items-center">
+       <h1 class="text-lg font-bold">{{ auth()->user()->nisn }}</h1>
+       <p class="py-2 px-4 text-xs bg-amber-500 shadow-md shadow-amber-500/50 font-bold">{{ auth()->user()->class }}</p>
+     </div>
+     <div class="py-2 mt-2 md:flex md:justify-between md:items-start">
+       <h1 class="text-2xl mdw-1/2 font-semibold uppercase text-center md:text-left">{{ auth()->user()->fullname }}</h1>
+       <p class="text-sm py-2 px-4 bg-amber-500 shadow-md shadow-amber-500/50 mt-4 md:mt-0 text-center md:inline-block font-medium">{{ auth()->user()->exam_num }}</p>
+     </div>
+   </div>
+   
+   @if(auth()->user()->isPaid === "Lunas")
+   <div class="col-span-12 md:col-span-4 p-4 {{ auth()->user()->isPass === 'Lulus' ? 'bg-green-400' : 'bg-red-400' }} shadow-md">
+     <div class="md:flex md:flex-col md:justify-between h-full">
+       <div class="flex space-x-2 justify-center md:block md:space-x-0">
+         <p class="text-lg text-center uppercase md:text-left font-bold">{{ Str::words(auth()->user()->fullname, 1) }}</p>
+         <p class="text-xl font-light text-center md:text-left">telah dinyatakan </p>
+       </div>
+       <p class="text-lg py-2 px-4 mt-4 md:mt-0 font-bold bg-white/30 backdrop-blur-md shadow-md {{ auth()->user()->isPass === 'Lulus' ? 'shadow-green-400/50' : 'shadow-red-400/50' }} text-center md:text-left uppercase">{{ auth()->user()->isPass }}</p>
+     </div>
+   </div>
+   @else
+   <div class="col-span-12 md:col-span-4 p-4 bg-gray-400 shadow-md">
+     <div class="md:flex md:flex-col md:justify-between h-full">
+       <div class="flex space-x-2 justify-center md:block md:space-x-0">
+         <p class="text-lg text-center uppercase md:text-left font-bold">{{ Str::words(auth()->user()->fullname, 1) }}</p>
+         <p class="text-xl font-light text-center md:text-left">telah dinyatakan </p>
+       </div>
+       <p class="text-lg py-2 px-4 mt-4 md:mt-0 font-bold bg-white/30 backdrop-blur-md shadow-md shadow-gray-400/50 text-center md:text-left uppercase">---</p>
+     </div>
+   </div>
+   
+   @endif
+ </div>
   
 </div>
 @endsection

@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
   public function login() {
     return view("auth.login", [
-      "title" => "Login"
+      "title" => "Login Siswa"
     ]);
   }
 
@@ -34,7 +34,7 @@ class LoginController extends Controller
   }
   
   public function logout(Request $request) {
-    Auth::logout();
+    Auth::guard("user")->logout();
  
     $request->session()->invalidate();
  

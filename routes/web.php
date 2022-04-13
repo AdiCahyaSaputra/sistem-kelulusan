@@ -23,12 +23,12 @@ Route::get('/siswa', function () {
 
 Route::controller(LoginController::class)->group(function() {
   Route::get("/siswa/login", "login")->name("login")->middleware("guest:user");
-  Route::post("/login", "authLogin");
-  Route::post("/siswa/logout", "logout");
+  Route::post("/login", "authLogin")->middleware('guest:user');
+  Route::post("/siswa/logout", "logout")->middleware("auth:user");
   
 });
 
-Route::get("/dashboard", function() {
+Route::get("/admin", function() {
   return view("main.dashboard", [
     "title" => "Admin Dashboard",
   ]);
@@ -37,7 +37,7 @@ Route::get("/dashboard", function() {
 
 Route::controller(AdminController::class)->group(function() {
   Route::get("/admin/login", "login")->name('login')->middleware("guest:admin");
-  Route::post("/admin", "authLogin");
-  Route::post("/admin/logout", "logout");
+  Route::post("/admin", "authLogin")->middleware('guest:admin');
+  Route::post("/admin/logout", "logout")->middleware('auth:admin');
   
 });

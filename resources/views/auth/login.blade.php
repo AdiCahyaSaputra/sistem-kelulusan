@@ -2,7 +2,7 @@
 
 @section("content")
 <div class="bg-amber-500 w-full h-screen">
-  <div class="container mx-auto p-8">
+  <div class="w-full md:w-1/2 mx-auto p-8">
     <div class="p-8 bg-amber-200 shadow-lg">
 
       <div>
@@ -36,6 +36,9 @@
       </div>
 
     </div>
+  </div>
+  <div class="text-center">
+    <a href="/admin/login" class="text-normal group mt-4 font-medium text-white">Login sebagai <span class="font-bold group-hover:underline">Admin</span> ?</a>
   </div>
 </div>
 @endsection
