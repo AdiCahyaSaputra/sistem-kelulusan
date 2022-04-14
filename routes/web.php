@@ -49,4 +49,7 @@ Route::controller(AdminController::class)->group(function() {
   Route::get("/user/edit/{user:nisn}", "edit")->middleware('auth:admin');
   Route::post("/user/update/{user:nisn}", "update")->middleware('auth:admin');
   
+  Route::get("/user/create", "create")->middleware('auth:admin');
+  Route::post("/user/store", "store")->middleware('auth:admin');
+
 });

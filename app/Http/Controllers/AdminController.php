@@ -82,4 +82,35 @@ class AdminController extends Controller
     return redirect('/admin')->with('update', 'Data siswa berhasil diupdate');
   }
 
+  public function create(Request $request) {
+    $isPass = ['Lulus', 'Tidak Lulus'];
+    $isPaid = ['Lunas', 'Belum Lunas'];
+
+    return view('main.create', [
+      'title' => 'Tambah Siswa',
+      'isPass' => $isPass,
+      'isPaid' => $isPaid
+    ]);
+  }
+
+  public function store(Request $request) {
+    $validData = $request->validate([
+      'nisn' => 'required',
+      'exam_num' => 'required',
+      'fullname' => 'required',
+      'birth' => 'required',
+      'class' => 'required',
+      'isPass' => 'required',
+      'isPaid' => 'required'
+    ]);
+
+    // jika lolos
+    $validData['birth'] = bcrypt($request['birth']);
+
+    User::create($validData);
+
+    return redirect('/admin')->with('create', 'Data berhasil ditambahkan');
+
+  }
+
 }
