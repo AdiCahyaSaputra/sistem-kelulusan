@@ -40,11 +40,11 @@ use Illuminate\Support\Str;
    @else
    <div class="col-span-12 md:col-span-4 p-4 bg-gray-400 shadow-md">
      <div class="md:flex md:flex-col md:justify-between h-full">
-       <div class="flex space-x-2 justify-center md:block md:space-x-0">
+       <div class="flex space-x-2 justify-center md:block md:space-x-0 mb-2">
          <p class="text-lg text-center uppercase md:text-left font-bold">{{ Str::words(auth()->user()->fullname, 1) }}</p>
          <p class="text-xl font-light text-center md:text-left">telah dinyatakan </p>
        </div>
-       <p class="text-lg py-2 px-4 mt-4 md:mt-0 font-bold bg-white/30 backdrop-blur-md shadow-md shadow-gray-400/50 text-center md:text-left uppercase">---</p>
+       <p class="text-sm py-2 px-4 mt-4 md:mt-0 font-bold bg-white/30 backdrop-blur-md shadow-md shadow-gray-400/50 text-center md:text-left uppercase">Maaf, anda belum melunasi administrasi</p>
      </div>
    </div>
    

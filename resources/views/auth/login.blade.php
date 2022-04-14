@@ -17,11 +17,11 @@
           @csrf
           <div>
             <label for="nisn" class="font-medium text-sky-600">NISN</label>
-            <input type="text" required autocomplete="off" name="nisn" id="nisn" class="text-sky-600 font-medium mt-2 w-full py-1 px-2 bg-sky-100 outline-none shadow-sm focus:border-l-4 focus:border-sky-500">
+            <input type="text" placeholder="Nomor Induk Siswa Nasional" required autocomplete="off" name="nisn" id="nisn" class="text-sky-600 font-medium mt-2 w-full py-1 px-2 bg-sky-100 outline-none shadow-sm focus:border-l-4 focus:border-sky-500">
           </div>
           <div class="mt-4">
             <label for="password" class="font-medium text-sky-600">PASSWORD</label>
-            <input type="password" name="password" id="password" class="text-sky-600 font-medium mt-2 w-full py-1 px-2 bg-sky-100 outline-none shadow-sm focus:border-l-4 focus:border-sky-500">
+            <input type="password" name="password" placeholder="Tanggal Lahir" id="password" class="text-sky-600 font-medium mt-2 w-full py-1 px-2 bg-sky-100 outline-none shadow-sm focus:border-l-4 focus:border-sky-500">
           </div>
           
           <div class="mt-4">

@@ -17,7 +17,7 @@
           @csrf
           <div>
             <label for="username" class="font-medium text-amber-600">USERNAME</label>
-            <input type="text" name="username" id="username" class="text-amber-600 font-medium mt-2 w-full py-1 px-2 bg-amber-100 outline-none shadow-sm focus:border-l-4 focus:border-amber-500">
+            <input type="text" required autocomplete="off" name="username" id="username" class="text-amber-600 font-medium mt-2 w-full py-1 px-2 bg-amber-100 outline-none shadow-sm focus:border-l-4 focus:border-amber-500">
           </div>
           <div class="mt-4">
             <label for="password" class="font-medium text-amber-600">PASSWORD</label>

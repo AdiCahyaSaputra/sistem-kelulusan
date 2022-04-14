@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,14 +31,16 @@ Route::controller(LoginController::class)->group(function() {
 });
 
 Route::get("/admin", function() {
+  $users = User::all();
   return view("main.dashboard", [
     "title" => "Admin Dashboard",
+    'users' => $users
   ]);
 })->middleware("auth:admin");
 
 
 Route::controller(AdminController::class)->group(function() {
-  Route::get("/admin/login", "login")->name('login')->middleware("guest:admin");
+  Route::get("/admin/login", "login")->name('admin')->middleware("guest:admin");
   Route::post("/admin", "authLogin")->middleware('guest:admin');
   Route::post("/admin/logout", "logout")->middleware('auth:admin');
   
