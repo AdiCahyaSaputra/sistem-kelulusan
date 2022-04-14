@@ -2,7 +2,7 @@
 
 @section("content")
 <div class="bg-amber-500 w-full h-screen">
-  <div class="w-full md:w-1/2 mx-auto p-8">
+  <div class="w-full md:w-1/2 lg:w-1/3 mx-auto p-8">
     <div class="p-8 bg-amber-200 shadow-lg">
 
       <div>
