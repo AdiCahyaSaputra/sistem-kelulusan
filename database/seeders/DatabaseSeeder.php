@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
           "nisn" => "0056399286",
           "exam_num" => "123-456-789",
           "fullname" => "Adi",
-          "birth" => bcrypt("11042022"),
+          "password" => bcrypt("11042022"),
           "class" => "12 RPL",
           "isPass" => "Lulus",
           "isPaid" => "Lunas"
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
           "nisn" => "0056092748",
           "exam_num" => "987-654-321",
           "fullname" => "Cahya",
-          "birth" => bcrypt("25062022"),
+          "password" => bcrypt("25062022"),
           "class" => "12 RPL",
           "isPass" => "Lulus",
           "isPaid" => "Belum Lunas"
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
           "nisn" => "0056454892",
           "exam_num" => "476-132-895",
           "fullname" => "Saputra",
-          "birth" => bcrypt("01042022"),
+          "password" => bcrypt("01042022"),
           "class" => "12 RPL",
           "isPass" => "Tidak Lulus",
           "isPaid" => "Lunas"

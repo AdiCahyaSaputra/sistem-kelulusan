@@ -38,8 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function getAuthPassword() {
-      return $this->birth; // SELECT birth FROM user
-    }
+    // public function getAuthPassword() {
+    //   return $this->birth; // SELECT birth FROM user
+    // }
     
 }
