@@ -43,5 +43,10 @@ Route::controller(AdminController::class)->group(function() {
   Route::get("/admin/login", "login")->name('admin')->middleware("guest:admin");
   Route::post("/admin", "authLogin")->middleware('guest:admin');
   Route::post("/admin/logout", "logout")->middleware('auth:admin');
+
+  Route::post("/user/delete/{user:nisn}", "destroy")->middleware('auth:admin');
+  Route::post("/user/destroy/all", "destroyAll")->middleware('auth:admin');
+  Route::get("/user/edit/{user:nisn}", "edit")->middleware('auth:admin');
+  Route::post("/user/update/{user:nisn}", "update")->middleware('auth:admin');
   
 });
