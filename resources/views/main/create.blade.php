@@ -117,6 +117,11 @@
           </div>
 
         </form>
+        
+        <div>
+          <a href="/user/create/import" class="w-full text-center inline-block mt-4 px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg transition duration-150 ease-in-out">Import Dari Excel</a>
+        </div>
+        
       </div>
 
     </div>

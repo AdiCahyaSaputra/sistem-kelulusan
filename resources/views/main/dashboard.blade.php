@@ -40,10 +40,10 @@
 
           
           <div class="flex space-x-2">
-            <a href="/user/create" class="w-1/2 py-2 px-4 mt-2 text-center rounded-sm bg-green-400 hover:bg-green-500 text-white">Tambah Siswa</a>
+            <a href="/user/create" class="p-2 md:p-4 mt-2 text-center rounded-sm bg-green-400 hover:bg-green-500 text-white">Tambah Siswa</a>
             <form action="/user/destroy/all" method="post">
                 @csrf
-                <button type="submit" onclick="return confirm('Hapus Semua Data ?')" class="py-2 px-4 mt-2 rounded-sm bg-red-400 w-full hover:bg-red-500 text-white">Hapus Semua</button>
+                <button type="submit" onclick="return confirm('Hapus Semua Data ?')" class="p-2 md:p-4 mt-2 rounded-sm bg-red-400 w-full hover:bg-red-500 text-white">Hapus Semua</button>
 
             </form>
           </div>

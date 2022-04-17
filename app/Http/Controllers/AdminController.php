@@ -9,6 +9,8 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+  
+  // Auth Method
   public function login() {
     return view("auth.admin", [
       "title" => "Login Admin"
@@ -42,7 +44,9 @@ class AdminController extends Controller
 
     return redirect('/admin/login');
   }
-
+  // End Auth Method
+  
+  // CRUD Method
   public function destroy(User $user) {
     if($user->delete()) {
       return back()->with('destroy', 'Data siswa berhasil dihapus');
@@ -54,7 +58,8 @@ class AdminController extends Controller
 
     return redirect('/admin')->with('destroyAll', 'Semua data siswa berhasil dihapus');
   }
-
+  
+  // View Update
   public function edit(User $user) {
     $isPass = ['Lulus', 'Tidak Lulus'];
     $isPaid = ['Lunas', 'Belum Lunas'];
@@ -66,7 +71,8 @@ class AdminController extends Controller
       'isPaid' => $isPaid
     ]);
   }
-
+  
+  // Logic update
   public function update(Request $request, User $user) {
     $validData = $request->validate([
       'nisn' => 'required',
@@ -81,7 +87,8 @@ class AdminController extends Controller
 
     return redirect('/admin')->with('update', 'Data siswa berhasil diupdate');
   }
-
+  
+  // View create
   public function create(Request $request) {
     $isPass = ['Lulus', 'Tidak Lulus'];
     $isPaid = ['Lunas', 'Belum Lunas'];
@@ -92,7 +99,15 @@ class AdminController extends Controller
       'isPaid' => $isPaid
     ]);
   }
-
+  
+  // View import
+  public function import() {
+    return view('main.import', [
+      "title" => "Import Dari Excel"
+    ]);
+  }
+  
+  // Logic create
   public function store(Request $request) {
     $validData = $request->validate([
       'nisn' => 'required',
@@ -112,5 +127,7 @@ class AdminController extends Controller
     return redirect('/admin')->with('create', 'Data berhasil ditambahkan');
 
   }
+  // End CRUD method
+  
 
 }
