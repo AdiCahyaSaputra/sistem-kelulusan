@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Models\User;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,16 +19,16 @@ use App\Models\User;
 */
 
 Route::get('/siswa', function () {
-    return view("main.home", [
-      "title" => "Home"
-    ]);
+  return view("main.home", [
+    "title" => "Home"
+  ]);
 })->middleware('auth:user');
 
 Route::controller(LoginController::class)->group(function() {
   Route::get("/siswa/login", "login")->name("login")->middleware("guest:user");
   Route::post("/login", "authLogin")->middleware('guest:user');
   Route::post("/siswa/logout", "logout")->middleware("auth:user");
-  
+
 });
 
 Route::get("/admin", function() {
@@ -48,9 +49,10 @@ Route::controller(AdminController::class)->group(function() {
   Route::post("/user/destroy/all", "destroyAll")->middleware('auth:admin');
   Route::get("/user/edit/{user:nisn}", "edit")->middleware('auth:admin');
   Route::post("/user/update/{user:nisn}", "update")->middleware('auth:admin');
-  
+
   Route::get("/user/create", "create")->middleware('auth:admin');
-  Route::get("/user/create/import", "import")->middleware('auth:admin');
+  Route::get("/user/create/import", "importFile")->middleware('auth:admin');
+  Route::post("/user/import/store", "import")->middleware('auth:admin');
   Route::post("/user/store", "store")->middleware('auth:admin');
 
 });

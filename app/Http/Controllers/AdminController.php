@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class AdminController extends Controller
 {
   
@@ -101,10 +104,17 @@ class AdminController extends Controller
   }
   
   // View import
-  public function import() {
+  public function importFile() {
     return view('main.import', [
       "title" => "Import Dari Excel"
     ]);
+  }
+  
+  // Logic Import
+  public function import(Request $request) {
+    // ddd($request);
+    $collection = Excel::toCollection(new UsersImport, $request->file('xlsx'));
+    dd($collection[0]);
   }
   
   // Logic create

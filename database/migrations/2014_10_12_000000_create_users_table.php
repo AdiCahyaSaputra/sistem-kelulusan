@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('fullname');
             $table->string('password'); // set jadi default password buat auth check 
             $table->string('class');
-            $table->enum('isPass', ["Lulus", "Tidak Lulus"]);
-            $table->enum('isPaid', ["Lunas", "Belum Lunas"]);
+            $table->enum('isPass', ["LULUS", "TIDAK LULUS"]);
+            $table->enum('isPaid', ["LUNAS", "BELUM LUNAS"]);
             $table->rememberToken();
             $table->timestamps();
         });

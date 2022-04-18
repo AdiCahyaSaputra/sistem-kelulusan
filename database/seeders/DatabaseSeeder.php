@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
           "fullname" => "Adi",
           "password" => bcrypt("11042022"),
           "class" => "12 RPL",
-          "isPass" => "Lulus",
-          "isPaid" => "Lunas"
+          "isPass" => "LULUS",
+          "isPaid" => "LUNAS"
         ]);
         
         User::create([
@@ -34,8 +34,8 @@ class DatabaseSeeder extends Seeder
           "fullname" => "Cahya",
           "password" => bcrypt("25062022"),
           "class" => "12 RPL",
-          "isPass" => "Lulus",
-          "isPaid" => "Belum Lunas"
+          "isPass" => "LULUS",
+          "isPaid" => "BELUM LUNAS"
         ]);
         
         User::create([
@@ -44,8 +44,8 @@ class DatabaseSeeder extends Seeder
           "fullname" => "Saputra",
           "password" => bcrypt("01042022"),
           "class" => "12 RPL",
-          "isPass" => "Tidak Lulus",
-          "isPaid" => "Lunas"
+          "isPass" => "TIDAK LULUS",
+          "isPaid" => "LUNAS"
         ]);
         
         Admin::create([
