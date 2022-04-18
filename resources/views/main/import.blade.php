@@ -12,7 +12,8 @@
         <label for="xlsx"
           class="p-2 mt-4 border-2 border-dashed border-white
           text-sm font-light italic inline-block
-          w-full cursor-pointer">Select File...</label>
+          w-full cursor-pointer"
+          id="xlsx-file-name">Select File...</label>
         <input type="file" class="hidden" name="xlsx" id="xlsx">
 
         <div class="mt-4">
@@ -24,4 +25,20 @@
 
   </div>
 </div>
+
+<script>
+  const inputFile = document.querySelector("#xlsx");
+  const fileName = document.querySelector("#xlsx-file-name");
+  
+  inputFile.addEventListener('change', function() {
+    if(inputFile.value) {
+      fileName.innerHTML = `
+      <p class="font-semibold bg-green-700 p-1">${inputFile.value}</p>
+      `;
+    } else {
+      fileName.innerHTML = "Select file"
+    }
+  });
+  
+</script>
 @endsection
