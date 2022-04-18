@@ -10,9 +10,17 @@ $ cd /project/path
 $ npm install
 $ composer install
 ```
+
+run local development server
 ```
 $ php artisan serve
 ```
+
+run [tailwind](https://tailwindcss.com/docs/guides/laravel) (if u want to edit the view)
+```
+$ npm run watch
+```
+
 
 why `/node_modules` is [igonored](https://sebhastian.com/git-ignore-node_modules/)
 <br>
