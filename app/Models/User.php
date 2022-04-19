@@ -41,5 +41,9 @@ class User extends Authenticatable
     // public function getAuthPassword() {
     //   return $this->birth; // SELECT birth FROM user
     // }
+
+    public function scopeSearch($query) {
+        return $query->where('nisn', 'like', '%' . request('search') . '%');
+    }
     
 }

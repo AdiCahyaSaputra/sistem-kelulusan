@@ -40,9 +40,9 @@
           </div>
 
           <div class="mt-4">
-            <label for="birth" class="font-medium text-sky-600">Tanggal Lahir</label>
-            <input type="text" placeholder="11042022" required autocomplete="off" name="birth" id="birth" class="text-sky-600 font-medium mt-2 w-full py-1 px-2 bg-sky-100 outline-none shadow-sm focus:border-l-4 focus:border-sky-500" value="{{ old('birth') }}">
-            @error('birth')
+            <label for="password" class="font-medium text-sky-600">Tanggal Lahir</label>
+            <input type="text" placeholder="11042022" required autocomplete="off" name="password" id="password" class="text-sky-600 font-medium mt-2 w-full py-1 px-2 bg-sky-100 outline-none shadow-sm focus:border-l-4 focus:border-sky-500" value="{{ old('birth') }}">
+            @error('password')
                 <p class="mt-2 text-red-600 text-sm ">{{ $message }}</p>
             @enderror
           </div>

@@ -112,9 +112,39 @@ class AdminController extends Controller
   
   // Logic Import
   public function import(Request $request) {
-    // ddd($request);
+
     $collection = Excel::toCollection(new UsersImport, $request->file('xlsx'));
-    dd($collection[0]);
+
+    foreach( $collection[0] as $row ) {
+
+      if($row[0] !== 'nisn') {
+        
+        $fulldate = str_split($row[3]); // [2, 0, 0, 3, 1, 1, 0, 3]
+        $year = implode('', array_slice($fulldate, 0, 4)); // 2003
+        $month = implode('', array_slice($fulldate, 4, 2)); // 11
+        $day = implode('', array_slice($fulldate, 6, 2)); // 03
+        
+        $fulldate = implode('', [$day, $month, $year]);
+        $row[3] = bcrypt($fulldate);
+
+        // store ke db
+        User::create([
+          'nisn' => $row[0],
+          'exam_num' => $row[1],
+          'fullname' => $row[2],
+          'password' => $row[3],
+          'class' => $row[4],
+          'isPass' => $row[5],
+          'isPaid' => $row[6]
+        ]);
+        
+
+      }
+    }
+
+    return redirect('/admin')->with('create', 'Data berhasil ditambahkan');
+
+
   }
   
   // Logic create
@@ -123,14 +153,14 @@ class AdminController extends Controller
       'nisn' => 'required',
       'exam_num' => 'required',
       'fullname' => 'required',
-      'birth' => 'required',
+      'password' => 'required',
       'class' => 'required',
       'isPass' => 'required',
       'isPaid' => 'required'
     ]);
 
     // jika lolos
-    $validData['birth'] = bcrypt($request['birth']);
+    $validData['password'] = bcrypt($request['password']);
 
     User::create($validData);
 

@@ -4,51 +4,57 @@
 <div class="p-4">
 
   <div class="container mx-auto">
-    @if(session('destroy'))
-    <div class="py-2 px-4 w-max bg-red-400">
-      <h1 class="text-sm md:text-lg font-semibold text-white">{{ session('destroy') }}</h1>
-    </div>
-    @endif
-    @if(session('update'))
-    <div class="py-2 px-4 w-max bg-sky-400">
-      <h1 class="text-sm md:text-lg font-semibold text-white">{{ session('update') }}</h1>
-    </div>
-    @endif
-    @if(session('destroyAll'))
-    <div class="py-2 px-4 w-max bg-red-400">
-      <h1 class="text-sm md:text-lg font-semibold text-white">{{ session('destroyAll') }}</h1>
-    </div>
-    @endif
-    @if(session('create'))
-    <div class="py-2 px-4 w-max bg-sky-400">
-      <h1 class="text-sm md:text-lg font-semibold text-white">{{ session('create') }}</h1>
-    </div>
-    @endif
+    
     <!-- Heading -->
-    <div class="md:flex md:justify-between md:items-center my-4">
+    <div class="flex justify-between items-center">
       <div class=" mb-2 md:mb-0">
         <h1 class="text-lg md:text-3xl font-bold">Semua Data Siswa</h1>
         <p class="text-sm md:text-lg text-gray-400">Sekolah Pangeran Wijaya Kusuma</p>
       </div>
-      <div class="">
-        <div class="xl:w-96">
+      @if(session('destroy'))
+      <div class="py-2 px-4 w-max bg-red-400">
+        <h1 class="text-sm md:text-lg font-semibold text-white">{{ session('destroy') }}</h1>
+      </div>
+      @endif
+      @if(session('update'))
+      <div class="py-2 px-4 w-max bg-sky-400">
+        <h1 class="text-sm md:text-lg font-semibold text-white">{{ session('update') }}</h1>
+      </div>
+      @endif
+      @if(session('destroyAll'))
+      <div class="py-2 px-4 w-max bg-red-400">
+        <h1 class="text-sm md:text-lg font-semibold text-white">{{ session('destroyAll') }}</h1>
+      </div>
+      @endif
+      @if(session('create'))
+      <div class="py-2 px-4 w-max bg-sky-400">
+        <h1 class="text-sm md:text-lg font-semibold text-white">{{ session('create') }}</h1>
+      </div>
+      @endif
+    </div>
+    <div class="md:flex md:justify-between md:items-center my-4">
+
+      <div class="md:flex md:justify-between md:items-center w-full">
+        <div>
           <form action="" method="get">
             <div class="input-group relative flex flex-wrap items-stretch">
-              <input type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon3">
+              <input type="search" class="relative block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-600 focus:outline-none" name="search" placeholder="Search by NISN" value="{{ old('search') }}">
             </div>           
           </form>
-
-          
-          <div class="flex space-x-2">
-            <a href="/user/create" class="p-2 md:p-4 mt-2 text-center rounded-sm bg-green-400 hover:bg-green-500 text-white">Tambah Siswa</a>
-            <form action="/user/destroy/all" method="post">
-                @csrf
-                <button type="submit" onclick="return confirm('Hapus Semua Data ?')" class="p-2 md:p-4 mt-2 rounded-sm bg-red-400 w-full hover:bg-red-500 text-white">Hapus Semua</button>
-
-            </form>
-          </div>
         </div>
+
+        
+        <div class="flex space-x-2">
+          <a href="/user/create" class="p-2 md:p-4 md:mt-0 mt-2 text-center rounded-sm bg-green-400 hover:bg-green-500 text-white">Tambah Siswa</a>
+          <form action="/user/destroy/all" method="post">
+              @csrf
+              <button type="submit" onclick="return confirm('Hapus Semua Data ?')" class="p-2 mt-2 md:mt-0 md:p-4 rounded-sm bg-red-400 w-full hover:bg-red-500 text-white">Hapus Semua</button>
+
+          </form>
+        </div>
+
       </div>
+
     </div>
     <!-- end heading -->
     <!-- Table -->
@@ -86,7 +92,6 @@
                 </tr>
               </thead>
               <tbody>
-
                 @foreach( $users as $user )
                   <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $loop->iteration }}</td>
@@ -125,6 +130,20 @@
       </div>
     </div>
     <!-- end Table -->
+
+    <!-- Search items is empty -->
+    @if(Request::has('search'))
+      @if($users->isEmpty())
+      <h1 class="text-lg my-2 p-2 bg-amber-400 text-white text-center font-semibold">Siswa tidak ditemukan</h1>
+      @endif
+
+    @endif
+
+    @if(Request::has('search'))
+    <div class="flex w-full justify-center">
+      <a href="/admin" class="py-2 px-4 inline-block mt-2 text-center rounded-sm bg-sky-400 hover:bg-sky-500 text-white">Kembali ke Admin</a>
+    </div>
+    @endif
 
   </div>
 </div>

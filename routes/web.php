@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Http\Request;
 
 use App\Models\User;
 
@@ -31,8 +32,13 @@ Route::controller(LoginController::class)->group(function() {
 
 });
 
-Route::get("/admin", function() {
+Route::get("/admin", function(Request $request) {
   $users = User::all();
+
+  if($request['search']) {
+    $users = User::search()->get();
+  }
+
   return view("main.dashboard", [
     "title" => "Admin Dashboard",
     'users' => $users

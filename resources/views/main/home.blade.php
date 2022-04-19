@@ -27,14 +27,14 @@ use Illuminate\Support\Str;
      </div>
    </div>
    
-   @if(auth()->user()->isPaid === "Lunas")
-   <div class="col-span-12 md:col-span-4 p-4 {{ auth()->user()->isPass === 'Lulus' ? 'bg-green-400' : 'bg-red-400' }} shadow-md">
+   @if(auth()->user()->isPaid === "LUNAS")
+   <div class="col-span-12 md:col-span-4 p-4 {{ auth()->user()->isPass === 'LULUS' ? 'bg-green-400' : 'bg-red-400' }} shadow-md">
      <div class="md:flex md:flex-col md:justify-between h-full">
        <div class="flex space-x-2 justify-center md:block md:space-x-0">
          <p class="text-lg text-center uppercase md:text-left font-bold">{{ Str::words(auth()->user()->fullname, 1) }}</p>
          <p class="text-xl font-light text-center md:text-left">telah dinyatakan </p>
        </div>
-       <p class="text-lg py-2 px-4 mt-4 md:mt-0 font-bold bg-white/30 backdrop-blur-md shadow-md {{ auth()->user()->isPass === 'Lulus' ? 'shadow-green-400/50' : 'shadow-red-400/50' }} text-center md:text-left uppercase">{{ auth()->user()->isPass }}</p>
+       <p class="text-lg py-2 px-4 mt-4 md:mt-0 font-bold bg-white/30 backdrop-blur-md shadow-md {{ auth()->user()->isPass === 'LULUS' ? 'shadow-green-400/50' : 'shadow-red-400/50' }} text-center md:text-left uppercase">{{ auth()->user()->isPass }}</p>
      </div>
    </div>
    @else
