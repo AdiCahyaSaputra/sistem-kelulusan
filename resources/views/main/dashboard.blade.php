@@ -4,7 +4,12 @@
 <div class="p-4">
 
   <div class="container mx-auto">
-    
+  <div class="my-2">
+     <form action="/admin/logout" method="post">
+       @csrf
+       <button type="submit" class="px-6 py-2.5 bg-sky-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:bg-sky-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-sky-800 active:shadow-lg transition duration-150 ease-in-out md:w-max w-full">Logout</button>
+     </form>
+   </div>
     <!-- Heading -->
     <div class="flex justify-between items-center">
       <div class=" mb-2 md:mb-0">

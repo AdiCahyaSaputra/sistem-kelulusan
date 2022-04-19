@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
         
         Admin::create([
           "username" => "admin123",
-          "password" => bcrypt("admin123")
+          "password" => bcrypt("password_admin_123")
         ]);
         
     }
